@@ -15,7 +15,7 @@ public class MakingDeposits
         // When
         account.Deposit(amountToDeposit);
 
-        //T Then
+        // Then
         Assert.Equal(openingBalance + amountToDeposit, account.GetBalance());
     }
 }
