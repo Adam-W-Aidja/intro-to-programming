@@ -40,7 +40,7 @@ public class OverdraftNotAllowed
 
         var amountToWithdraw = account.GetBalance() + .01M;
 
-        // When
+        // When & then
         Assert.Throws<OverdraftException>(() =>
         {
             account.Withdraw(amountToWithdraw);
