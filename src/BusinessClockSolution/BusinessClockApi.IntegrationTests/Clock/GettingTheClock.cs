@@ -36,11 +36,11 @@ public class GettingTheClock
     [Fact]
     public async Task AfterHours()
     {
-        //given
-        //var expectedResponse = new ClockResponse(false, null);
+        // Given 
+        var expectedResponse = new ClockResponse(false, new DateTime(1969, 04, 21, 9, 00, 00));
         var host = await AlbaHost.For<Program>();
 
-        //when
+        // When
         var response = await host.Scenario(api =>
         {
             api.Get.Url("/clock");
@@ -49,9 +49,6 @@ public class GettingTheClock
 
         var result = response.ReadAsJson<ClockResponse>();
         Assert.NotNull(result);
-        Assert.False(result.open);
-
-        Assert.NotNull(result.opensNext);
-        //(expectedResponse, result);
+        Assert.Equal(expectedResponse, result);
     }
 }
