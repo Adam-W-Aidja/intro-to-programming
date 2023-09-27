@@ -1,5 +1,7 @@
 ﻿namespace TodosApi.Services;
 
-public class IManageTodoLists
+public interface IManageTodoLists
 {
+    Task<TodoItemResponse> AddTodoItemAsync(TodoCreateRequest request);
+    Task<TodoListSummaryResponse> GetAllTodosAsync();
 }
